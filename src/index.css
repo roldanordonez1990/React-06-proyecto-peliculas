@@ -1,13 +1,276 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+html {
+  min-height: 100%;
+  position: relative;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+body{
+  background-color: rgb(200, 217, 240);
+  text-align: center;
+  font-family: Arial, Helvetica, sans-serif;
+  padding: 0px;
+  margin: 0px;
+}
+
+.layout{
+  width: 100%;
+  height: auto;
+  display: grid;
+
+  /*definimos lo que ocupan las áreas con esta propiedad*/
+  grid-template-areas: 
+      "header header header header"
+      "nav nav nav nav"
+      "contenido contenido contenido lateral"
+      "footer footer footer footer";
+
+  /*con esta propiedad damos altura que queramos a las filas/areas de antes*/
+  grid-template-rows: 90px 60px auto 60px; 
+}
+
+.logo{
+  width: 55px;
+  height: 50px;   
+  margin-left: 10px; 
+}
+
+.cabecera{
+  grid-area: header;
+  background-color: rgb(0, 0, 0);
+  border: 1px solid black;
+  color: wheat;
+  width: 100%;
+  height: auto;
+  text-align: left;
+  display: flex;
+  align-items: center;
+}
+
+.navegacion{
+  grid-area: nav;
+  background: linear-gradient(90deg, #ffdd1c 20%, #fffab5 100%);
+  border: 1px solid black;
+  color: cornsilk;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+}
+
+.navegacion > ul{
+  display: flex;
+  list-style: none;
+  margin-bottom: 15px;   
+}
+
+.navegacion li{
+  padding: 30px
+}
+
+.navegacion a {
+  /*Si no se pone el display block no funciona la transición. Esto actúa como un bloque en conjunto */
+  display: block;
+  text-decoration: none;
+  color: black;
+  font-size: 16px;
+  transition: all 300ms;
+}
+
+.navegacion a:hover{
+  transform: scale(1.5, 1.5);
+}
+
+.contenido{
+  grid-area: contenido;
+  background-color: #fffff7;
+  border: 1px solid black;
+  color: black;
+  width: 100%;
+  height: auto;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  
+}
+
+.peli-item{
+  flex-grow: 1; /*Esta propiedad indica que cada item comparta un mismo espacio repartido GENIAL PARA RESPONSIVE*/
+  background-color: #faf7d9;
+  border-radius: 10px;
+  box-shadow: 0px 0px 6px #000;
+  margin: 40px;
+  flex-flow: wrap;
+  padding-top: 60px;
+  padding-bottom: 60px;
+  padding-left: 35px;
+  padding-right: 35px;
+}
+
+.peli-item2{
+  flex-grow: 1; /*Esta propiedad indica que cada item comparta un mismo espacio repartido GENIAL PARA RESPONSIVE*/
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0px 0px 6px #000;
+  margin: 40px;
+  flex-flow: wrap;
+  padding-top: 60px;
+  padding-bottom: 60px;
+  padding-left: 35px;
+  padding-right: 35px;
+  color: red;
+
+}
+
+input[type="submit"]{
+  background-color: rgb(88, 88, 88);
+  border: 1px solid black;
+  border-radius: 10%;
+  color: white;
+  padding: 5px;
+  font-size: 11px;
+  transition: all 350ms;
+  margin: 2px;
+}
+
+.peli-item .delete:hover{
+  background-color: red;
+  cursor: pointer;
+}
+
+.peli-item .edit:hover{
+  background-color: #ffdd1c;
+  color: black;
+  cursor: pointer;
+}
+
+.lateral{
+  grid-area: lateral;
+  background-color: #fffff7;
+  border: 1px solid black;
+  color: black;
+  width: 100%;
+  height: auto; 
+}
+
+.lateral_edit{
+  color: black;
+  width: 100%;
+  height: auto; 
+}
+
+.lateral > div{
+  box-sizing: border-box;
+  width: 90%;
+  margin: 15px;
+  padding: 19px;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0px 0px 3px #000;
+  margin-left: 12px;
+}
+
+hr {border: 1px dashed grey; height: 0; width: 100%; margin-top: 20px;}
+
+.lateral input[type="text"],
+.lateral textarea{
+  display: block;
+  margin: 0 auto;
+  margin-top: 10px;
+  max-width: 140px;
+  background: #f3f3f3;
+  color: black;
+  opacity: 4;
+  outline: 0;
+  border-color: transparent;
+  border-radius: 10px;
+}
+
+.lateral_edit input[type="text"],
+.lateral_edit textarea{
+  display: block;
+  margin: 0 auto;
+  margin-top: 10px;
+  max-width: 440px;
+  min-width: 160px;
+  background: #f3f3f3;
+  color: black;
+  opacity: 4;
+  outline: 0;
+  border-color: transparent;
+  border-radius: 10px;
+}
+
+.lateral input[type="submit"].guardar{
+  display: block;
+  margin: 0 auto;
+  margin-top: 10px;
+  max-width: 190px;
+  background-color: rgb(88, 88, 88);
+  border: 1px solid black;
+  border-radius: 10%;
+}
+
+div.b-edit{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.lateral_edit input[type="submit"].actualizar{
+  margin-top: 10px;
+  background-color: rgb(88, 88, 88);
+  border: 1px solid black;
+  border-radius: 10%;
+}
+
+.lateral_edit input[type="submit"].cancelar{
+  margin-top: 10px;
+  background-color: rgb(88, 88, 88);
+  border: 1px solid black;
+  border-radius: 10%;
+}
+
+form.lateral_edit .actualizar:hover{
+  background-color: rgb(0, 163, 0);
+  cursor: pointer;
+}
+
+form.lateral_edit .cancelar:hover{
+  background-color: rgb(0, 0, 0);
+  cursor: pointer;
+}
+
+.lateral input[type="submit"].buscar{
+  display: block;
+  margin: 0 auto;
+  margin-top: 10px;
+  max-width: 190px;
+  background-color: rgb(88, 88, 88);
+  border: 1px solid black;
+  border-radius: 10%;
+}
+
+.footer{
+  grid-area: footer;
+  background-color: rgb(0, 0, 0);
+  border: 1px solid black;
+  color: white;
+  width: 100%;
+  height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.not-found{
+  color: red;
+}
+
+@media(max-width: 925px){
+  .contenido{
+      flex-flow: column wrap;
+      justify-content: center;
+      align-items: center;
+  }
 }
