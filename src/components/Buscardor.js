@@ -7,7 +7,7 @@ export const Buscardor = ({listadoPelis, setListadoPelis}) => {
  
   const buscarPeli = (e) =>{
     e.preventDefault();
-    //Actualizamos en el momento el título con el evento
+    //Actualizamos en el momento el título con el evento.
     setBusqueda(e.target.value);
 
     let peli_encontrada = listadoPelis.filter(peli =>{
