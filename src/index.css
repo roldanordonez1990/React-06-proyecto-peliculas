@@ -263,6 +263,10 @@ form.lateral_edit .cancelar:hover{
   justify-content: center;
 }
 
+section{
+  min-height: 800px;
+}
+
 .not-found{
   color: red;
 }
